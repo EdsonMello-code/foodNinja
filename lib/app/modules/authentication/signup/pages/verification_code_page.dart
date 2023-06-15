@@ -23,6 +23,7 @@ class VerificationCodePage extends StatelessWidget {
           padding: padding.copyWith(
             left: 25,
             top: 38,
+            right: 25,
           ),
           decoration: const BoxDecoration(
             image: DecorationImage(
@@ -82,8 +83,12 @@ class VerificationCodePage extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 60.0),
                 child: Center(
                   child: ButtonWidget(
-                    text: 'Try Order',
-                    onPressed: () {},
+                    text: 'Next',
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(
+                        '/reset-password-success',
+                      );
+                    },
                   ),
                 ),
               )
