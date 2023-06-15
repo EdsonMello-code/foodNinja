@@ -51,13 +51,11 @@ class _TextTimeWidgetState extends State<TextTimeWidget> {
       const Duration(seconds: 1),
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      if (mounted) {
-        setState(() {
-          currentDateTime = dateSubtracted;
-        });
-      }
+    // if (mounted) {
+    setState(() {
+      currentDateTime = dateSubtracted;
     });
+    // }
 
     if (currentDateTime.minute <= 0 && currentDateTime.second <= 0) {
       timer.cancel();
