@@ -27,42 +27,50 @@ class OnboardingTileWidget extends StatelessWidget {
     final size = MediaQuery.sizeOf(context);
 
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SvgPicture.asset(
           imageUrl,
           width: size.width,
           fit: BoxFit.fitWidth,
         ),
-        SizedBox(
-          width: titleContainerSize,
-          height: 58,
-          child: TextWidget.inter(
-            title,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              color: theme.black,
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 42.0),
-          child: SizedBox(
-            width: 244,
-            child: TextWidget.inter(
-              subtitle,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w300,
+        Column(
+          children: [
+            SizedBox(
+              width: titleContainerSize,
+              height: 58,
+              child: TextWidget.inter(
+                title,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: theme.black,
+                ),
               ),
-              textAlign: TextAlign.center,
             ),
-          ),
-        ),
-        ButtonWidget(
-          onPressed: onPressed,
-          text: 'Next',
+            Padding(
+              padding: const EdgeInsets.only(bottom: 42.0),
+              child: SizedBox(
+                width: 244,
+                child: TextWidget.inter(
+                  subtitle,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 60.0),
+              child: ButtonWidget(
+                onPressed: onPressed,
+                text: 'Next',
+              ),
+            )
+          ],
         )
       ],
     );
