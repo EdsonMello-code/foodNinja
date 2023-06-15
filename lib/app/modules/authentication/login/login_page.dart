@@ -31,12 +31,15 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFFEFEFF),
       body: SingleChildScrollView(
+        padding: EdgeInsets.zero,
         child: Container(
           width: size.width,
-          height: size.height,
           padding: padding.copyWith(
             right: padding.right + 25,
             left: padding.left + 25,
+          ),
+          constraints: BoxConstraints(
+            minHeight: size.height - (padding.bottom + padding.top),
           ),
           decoration: const BoxDecoration(
             image: DecorationImage(
@@ -48,96 +51,100 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 47.0),
-                child: Image.asset('assets/images/logo.png'),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 60.0),
-                child: TextWidget.inter(
-                  'Login To Your Account',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 40.0),
-                child: TextFieldWidget(
-                  controller: textEditingController,
-                  hint: 'Email',
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 12.0,
-                ),
-                child: TextFieldWidget(
-                  controller: textEditingController,
-                  hint: 'Password',
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 20.0,
-                  bottom: 20.0,
-                ),
-                child: TextWidget.inter(
-                  'Or Continue With',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Row(
+              Column(
                 children: [
-                  LoginButtonWidget(
-                    child: SvgPicture.asset(
-                      'assets/images/facebook_icon.svg',
-                      width: 25,
-                      height: 25,
-                    ),
-                    onTap: () {},
+                  Padding(
+                    padding: const EdgeInsets.only(top: 47.0),
+                    child: Image.asset('assets/images/logo.png'),
                   ),
-                  const SizedBox(
-                    width: 21,
-                  ),
-                  LoginButtonWidget(
-                    child: SvgPicture.asset(
-                      'assets/images/google_icon.svg',
-                      width: 24,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 60.0),
+                    child: TextWidget.inter(
+                      'Login To Your Account',
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    onTap: () {},
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 40.0),
+                    child: TextFieldWidget(
+                      controller: textEditingController,
+                      hint: 'Email',
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 12.0,
+                    ),
+                    child: TextFieldWidget(
+                      controller: textEditingController,
+                      hint: 'Password',
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 20.0,
+                      bottom: 20.0,
+                    ),
+                    child: TextWidget.inter(
+                      'Or Continue With',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      LoginButtonWidget(
+                        child: SvgPicture.asset(
+                          'assets/images/facebook_icon.svg',
+                          width: 25,
+                          height: 25,
+                        ),
+                        onTap: () {},
+                      ),
+                      const SizedBox(
+                        width: 21,
+                      ),
+                      LoginButtonWidget(
+                        child: SvgPicture.asset(
+                          'assets/images/google_icon.svg',
+                          width: 24,
+                        ),
+                        onTap: () {},
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 20.0,
+                    ),
+                    child: TextButtonWidget(
+                      text: 'Forgot Your Password?',
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(
+                          '/password',
+                        );
+                      },
+                      style: TextStyle(
+                        color: context.appTheme.green,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                   ),
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20.0, bottom: 36),
-                child: TextButtonWidget(
-                  text: 'Forgot Your Password?',
-                  isUnderline: false,
+                padding: const EdgeInsets.only(bottom: 0.0),
+                child: ButtonWidget(
+                  text: 'Login',
                   onPressed: () {},
-                  style: TextStyle(
-                    color: context.appTheme.green,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                  ),
                 ),
-              ),
-
-              //  TextWidget.inter(
-              //     'Forgot Your Password?',
-              //     style: TextStyle(
-              //       color: context.appTheme.green,
-              //       fontSize: 12,
-              //       fontWeight: FontWeight.w500,
-              //     ),
-              //   )
-              ButtonWidget(
-                text: 'Login',
-                onPressed: () {},
               )
             ],
           ),
