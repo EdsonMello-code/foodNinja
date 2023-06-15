@@ -48,20 +48,29 @@ class _FirstStepOnboardingPageState extends State<FirstStepOnboardingPage> {
   @override
   Widget build(BuildContext context) {
     final padding = MediaQuery.paddingOf(context);
+    final size = MediaQuery.sizeOf(context);
 
     return Scaffold(
-      body: Container(
-        padding: padding.copyWith(
-          top: padding.top + 56,
-        ),
-        child: PageView.builder(
-          controller: controller,
-          itemCount: pages.length,
-          itemBuilder: (context, index) {
-            final page = pages[index];
+      body: SingleChildScrollView(
+        padding: EdgeInsets.zero,
+        child: SizedBox(
+          height: size.height,
+          width: size.width,
+          child: Container(
+            padding: padding.copyWith(
+              top: padding.top + 56,
+            ),
+            child: PageView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              controller: controller,
+              itemCount: pages.length,
+              itemBuilder: (context, index) {
+                final page = pages[index];
 
-            return page;
-          },
+                return page;
+              },
+            ),
+          ),
         ),
       ),
     );
