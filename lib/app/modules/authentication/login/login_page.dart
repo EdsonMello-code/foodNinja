@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:foodninja/app/core/extensions/theme_extensions.dart';
 import 'package:foodninja/app/core/widgets/button_widget.dart';
+import 'package:foodninja/app/core/widgets/text_button_widget.dart';
 import 'package:foodninja/app/core/widgets/text_field_widget.dart';
 import 'package:foodninja/app/core/widgets/text_widget.dart';
 import 'package:foodninja/app/modules/authentication/login/widgets/login_button_widget.dart';
@@ -114,8 +115,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20.0, bottom: 36),
-                child: TextWidget.inter(
-                  'Forgot Your Password?',
+                child: TextButtonWidget(
+                  text: 'Forgot Your Password?',
+                  isUnderline: false,
+                  onPressed: () {},
                   style: TextStyle(
                     color: context.appTheme.green,
                     fontSize: 12,
@@ -123,6 +126,15 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
+
+              //  TextWidget.inter(
+              //     'Forgot Your Password?',
+              //     style: TextStyle(
+              //       color: context.appTheme.green,
+              //       fontSize: 12,
+              //       fontWeight: FontWeight.w500,
+              //     ),
+              //   )
               ButtonWidget(
                 text: 'Login',
                 onPressed: () {},
