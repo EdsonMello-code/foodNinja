@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:foodninja/app/core/mixin/theme_mixin.dart';
 import 'package:foodninja/app/core/services/image/image_service.dart';
 import 'package:foodninja/app/modules/authentication/login/login_page.dart';
+import 'package:foodninja/app/modules/authentication/reset_password/reset_password_page.dart';
 import 'package:foodninja/app/modules/authentication/signup/controllers/set_location_controller.dart';
 import 'package:foodninja/app/modules/authentication/signup/controllers/upload_image_controller.dart';
 import 'package:foodninja/app/modules/authentication/signup/pages/payment_method_page.dart';
+import 'package:foodninja/app/modules/authentication/signup/pages/reset_success_password_page.dart';
 import 'package:foodninja/app/modules/authentication/signup/pages/set_location_page.dart';
 import 'package:foodninja/app/modules/authentication/signup/pages/signup_page.dart';
 import 'package:foodninja/app/modules/authentication/signup/pages/signup_process_page.dart';
 import 'package:foodninja/app/modules/authentication/signup/pages/signup_success_notification_page.dart';
 import 'package:foodninja/app/modules/authentication/signup/pages/upload_image_page.dart';
 import 'package:foodninja/app/modules/authentication/signup/pages/verification_code_page.dart';
+import 'package:foodninja/app/modules/authentication/signup/pages/via_method_page.dart';
 import 'package:foodninja/app/modules/onboarding/onboarding_page.dart';
 import 'package:foodninja/app/modules/onboarding/splash_page.dart';
 import 'package:foodninja/main.dart';
@@ -75,6 +78,15 @@ class AppWidget extends StatelessWidget with ThemeMixin {
         },
         '/verification-code': (context) {
           return const VerificationCodePage();
+        },
+        '/via-method': (context) {
+          return const ViaMethodPage();
+        },
+        '/password': (context) {
+          return const ResetPasswordPage();
+        },
+        '/reset-password-success': (context) {
+          return const ResetPasswordSuccessPage();
         },
       },
     );
