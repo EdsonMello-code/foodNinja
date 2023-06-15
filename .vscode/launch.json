@@ -7,19 +7,28 @@
         {
             "name": "foodninja",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            // "args": [
+            //     "--cache-sksl"
+            // ]
         },
         {
             "name": "foodninja (profile mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "profile",
+            "args": [
+                "--cache-sksl --purge-persistent-cache"
+            ]
         },
         {
             "name": "foodninja (release mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "release",
+            "args": [
+                "--cache-sksl --purge-persistent-cache"
+            ]
         }
     ]
 }
