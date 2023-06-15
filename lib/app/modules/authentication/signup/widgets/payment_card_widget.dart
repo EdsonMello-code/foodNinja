@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodninja/app/core/extensions/theme_extensions.dart';
+import 'package:foodninja/app/core/widgets/default_animation_card_widget.dart';
 
 class PaymentCardWidget extends StatelessWidget {
   final double height;
@@ -19,32 +20,34 @@ class PaymentCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
 
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(
-        22,
-      ),
-      child: Ink(
-        width: size.width,
-        height: height,
-        decoration: BoxDecoration(
-          color: backgroundColor ?? context.appTheme.white,
-          borderRadius: BorderRadius.circular(
-            22,
-          ),
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromARGB(
-                20,
-                90,
-                108,
-                234,
-              ),
-              blurRadius: 50,
-            ),
-          ],
+    return DefaultAnimationCardWidget(
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(
+          22,
         ),
-        child: child,
+        child: Ink(
+          width: size.width,
+          height: height,
+          decoration: BoxDecoration(
+            color: backgroundColor ?? context.appTheme.white,
+            borderRadius: BorderRadius.circular(
+              22,
+            ),
+            boxShadow: const [
+              BoxShadow(
+                color: Color.fromARGB(
+                  20,
+                  90,
+                  108,
+                  234,
+                ),
+                blurRadius: 50,
+              ),
+            ],
+          ),
+          child: child,
+        ),
       ),
     );
   }

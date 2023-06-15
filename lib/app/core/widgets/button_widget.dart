@@ -69,8 +69,7 @@ class ButtonWidget extends StatelessWidget {
         builder: (context, value, child) {
           final interpolation = lerpDouble(0.8, 1.0, value);
 
-          return AnimatedOpacity(
-            duration: const Duration(milliseconds: 500),
+          return Opacity(
             opacity: value,
             child: Transform.scale(
               scale: interpolation,
