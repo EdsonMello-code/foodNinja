@@ -17,17 +17,15 @@ class DefaultAnimationCardWidget extends StatefulWidget {
 
 class _DefaultAnimationCardWidgetState
     extends State<DefaultAnimationCardWidget> {
-  final key = UniqueKey();
-
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder<double>(
-      key: key,
       duration: widget.duration,
       tween: Tween(
         begin: 0.0,
         end: 1,
       ),
+      curve: Curves.decelerate,
       child: widget.child,
       builder: (context, value, child) {
         return Opacity(
