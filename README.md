@@ -4,7 +4,7 @@
 Desenvolvi um aplicativo de comida utilizando o Flutter, com o objetivo de aprimorar minhas habilidades em design de interface e animações. Todas as animações presentes no aplicativo foram criadas exclusivamente com recursos nativos do Flutter, sem a utilização de pacotes externos.
 
 
-[![Watch the video](docs/screenshot8.png)](docs/video.mp4)
+[![Watch the video](docs/screenshot8.png)]
 
 
 ## :heavy_check_mark: Telas do projeto
