@@ -25,7 +25,7 @@ class PaymentMethodPage extends StatelessWidget {
             Positioned(
               right: -30,
               child: Image.asset(
-                'assets/images/background_signup_process.png',
+                'assets/images/background_sliced.png',
                 width: size.width,
               ),
             ),

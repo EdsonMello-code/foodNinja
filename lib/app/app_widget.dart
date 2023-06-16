@@ -14,6 +14,7 @@ import 'package:foodninja/app/modules/authentication/signup/pages/signup_success
 import 'package:foodninja/app/modules/authentication/signup/pages/upload_image_page.dart';
 import 'package:foodninja/app/modules/authentication/signup/pages/verification_code_page.dart';
 import 'package:foodninja/app/modules/authentication/signup/pages/via_method_page.dart';
+import 'package:foodninja/app/modules/home/pages/home_page.dart';
 import 'package:foodninja/app/modules/onboarding/onboarding_page.dart';
 import 'package:foodninja/app/modules/onboarding/splash_page.dart';
 import 'package:foodninja/main.dart';
@@ -84,6 +85,9 @@ class AppWidget extends StatelessWidget with ThemeMixin {
         },
         '/password': (context) {
           return const ResetPasswordPage();
+        },
+        '/home': (context) {
+          return const HomePage();
         },
         '/reset-password-success': (context) {
           return const ResetPasswordSuccessPage();

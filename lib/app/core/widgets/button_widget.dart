@@ -8,12 +8,20 @@ class ButtonWidget extends StatelessWidget {
   final VoidCallback? onPressed;
   final String text;
   final Size size;
+  final Color? backgroundColor;
+  final Color? textColor;
+  final BorderRadius? borderRadius;
+  final double? fontSize;
 
   const ButtonWidget({
     super.key,
     this.onPressed,
     required this.text,
     this.size = const Size(157, 57),
+    this.backgroundColor,
+    this.textColor,
+    this.borderRadius,
+    this.fontSize,
   });
 
   @override
@@ -22,7 +30,7 @@ class ButtonWidget extends StatelessWidget {
     final defaultFontStyle = TextStyle(
       color: theme.white,
       fontFamily: 'BentonSans',
-      fontSize: 16,
+      fontSize: fontSize ?? 16,
       fontWeight: FontWeight.bold,
     );
     return TweenAnimationBuilder<double>(
@@ -36,30 +44,37 @@ class ButtonWidget extends StatelessWidget {
           color: Colors.transparent,
           child: InkWell(
             onTap: onPressed,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: borderRadius ?? BorderRadius.circular(15),
             child: Ink(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
+                color: backgroundColor,
+                borderRadius: borderRadius ?? BorderRadius.circular(15),
                 gradient: onPressed == null
-                    ? LinearGradient(
-                        colors: [
-                          theme.darkGreen.withOpacity(0.3),
-                          theme.green.withOpacity(0.3),
-                        ],
-                      )
-                    : LinearGradient(
-                        colors: [
-                          theme.darkGreen,
-                          theme.green,
-                        ],
-                      ),
+                    ? backgroundColor == null
+                        ? LinearGradient(
+                            colors: [
+                              theme.darkGreen.withOpacity(0.3),
+                              theme.green.withOpacity(0.3),
+                            ],
+                          )
+                        : null
+                    : backgroundColor == null
+                        ? LinearGradient(
+                            colors: [
+                              theme.darkGreen,
+                              theme.green,
+                            ],
+                          )
+                        : null,
               ),
               width: size.width,
               height: size.height,
               child: Center(
                 child: TextWidget.inter(
                   text,
-                  style: defaultFontStyle,
+                  style: defaultFontStyle.copyWith(
+                    color: textColor,
+                  ),
                   isTextAnimated: false,
                 ),
               ),

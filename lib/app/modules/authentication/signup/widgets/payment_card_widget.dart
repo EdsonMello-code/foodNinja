@@ -21,6 +21,9 @@ class PaymentCardWidget extends StatelessWidget {
     final size = MediaQuery.sizeOf(context);
 
     return DefaultAnimationCardWidget(
+      duration: const Duration(
+        milliseconds: 600,
+      ),
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(

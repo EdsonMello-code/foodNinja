@@ -19,6 +19,9 @@ class TextFieldWidget extends StatelessWidget {
   final TextStyle? style;
   final int? maxLength;
   final FocusNode? focusNode;
+  final Color? fillColor;
+  final Color? hintColor;
+  final EdgeInsets? contentPadding;
 
   const TextFieldWidget({
     super.key,
@@ -35,6 +38,9 @@ class TextFieldWidget extends StatelessWidget {
     this.style,
     this.maxLength,
     this.focusNode,
+    this.fillColor,
+    this.hintColor,
+    this.contentPadding,
   });
 
   @override
@@ -70,13 +76,14 @@ class TextFieldWidget extends StatelessWidget {
             textAlign: textAlign,
             keyboardType: textInputType,
             enableIMEPersonalizedLearning: true,
+            cursorColor: context.appTheme.orange,
             autocorrect: true,
             textCapitalization: TextCapitalization.sentences,
             style: GoogleFonts.inter(
               color: const Color(0xFF3B3B3B),
             ).merge(style),
             decoration: InputDecoration(
-              fillColor: theme.white,
+              fillColor: fillColor ?? theme.white,
               filled: true,
               counterText: '',
               hintText: hint,
@@ -85,15 +92,16 @@ class TextFieldWidget extends StatelessWidget {
                 minHeight: 24,
               ),
               hintStyle: GoogleFonts.inter(
-                color: theme.lightBlack,
+                color: hintColor ?? theme.lightBlack,
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
               ),
-              contentPadding: const EdgeInsets.only(
-                top: 18,
-                bottom: 18,
-                left: 20,
-              ),
+              contentPadding: contentPadding ??
+                  const EdgeInsets.only(
+                    top: 18,
+                    bottom: 18,
+                    left: 20,
+                  ),
               prefixIcon: prefix != null
                   ? Padding(
                       padding: const EdgeInsets.only(

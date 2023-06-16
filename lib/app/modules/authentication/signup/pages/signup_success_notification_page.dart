@@ -10,7 +10,9 @@ class SignupSuccessNotificationPage extends StatelessWidget {
       body: SuccessPage(
         title: 'Your Profile Is Ready To Use',
         buttonTitle: 'Try Order',
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushReplacementNamed('/home');
+        },
       ),
     );
   }
