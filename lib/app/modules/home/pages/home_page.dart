@@ -5,6 +5,7 @@ import 'package:foodninja/app/core/widgets/button_widget.dart';
 import 'package:foodninja/app/core/widgets/text_field_widget.dart';
 import 'package:foodninja/app/core/widgets/text_widget.dart';
 import 'package:foodninja/app/modules/home/models/restaurant_model.dart';
+import 'package:foodninja/app/modules/home/pages/widgets/home_bottom_navigation_bar_widget.dart';
 import 'package:foodninja/app/modules/home/widgets/home_button_filter_widget.dart';
 import 'package:foodninja/app/modules/home/widgets/home_card_widget.dart';
 import 'package:foodninja/app/modules/home/widgets/home_popular_widget.dart';
@@ -50,6 +51,33 @@ class HomePageState extends State<HomePage> {
 
     return Scaffold(
       backgroundColor: const Color(0xFFFEFEFF),
+      bottomNavigationBar: HomeBottomNavigationBarWidget(
+        onChanged: (value) {
+          print(value);
+        },
+        items: const [
+          CustomBottomNavigationBarItem(
+            title: 'Home',
+            enabled: true,
+            iconUrl: 'assets/images/home.png',
+          ),
+          CustomBottomNavigationBarItem(
+            title: 'Profile',
+            enabled: true,
+            iconUrl: 'assets/images/profile.png',
+          ),
+          CustomBottomNavigationBarItem(
+            title: 'Store',
+            enabled: true,
+            iconUrl: 'assets/images/cart.png',
+          ),
+          CustomBottomNavigationBarItem(
+            title: 'Chat',
+            enabled: true,
+            iconUrl: 'assets/images/chat.png',
+          ),
+        ],
+      ),
       body: Container(
         constraints: BoxConstraints(
           minHeight: size.height - padding.top,
@@ -225,9 +253,9 @@ class HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 20.0),
+            SliverPadding(
+              padding: const EdgeInsets.only(right: 31, left: 31, top: 20),
+              sliver: SliverToBoxAdapter(
                 child: SizedBox(
                   height: 190,
                   width: size.width,
