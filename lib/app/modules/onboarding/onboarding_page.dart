@@ -20,7 +20,7 @@ class _FirstStepOnboardingPageState extends State<FirstStepOnboardingPage> {
 
   List<Widget> get pages => [
         OnboardingTileWidget(
-          imageUrl: 'assets/images/onboarding_first_step.svg',
+          imageUrl: 'assets/images/onboarding_first_step.png',
           subtitle:
               'Here You Can find a chef or dish for every taste and color. Enjoy!',
           title: 'Find your  Comfort Food here',
@@ -36,7 +36,7 @@ class _FirstStepOnboardingPageState extends State<FirstStepOnboardingPage> {
           titleContainerSize: 300,
           title: 'Food Ninja is Where Your Comfort Food Lives',
           subtitle: 'Enjoy a fast and smooth food delivery at your doorstep',
-          imageUrl: 'assets/images/onboarding_two_step.svg',
+          imageUrl: 'assets/images/onboarding_two_step.png',
           onPressed: () {
             Navigator.of(context).pushReplacementNamed(
               '/signup',

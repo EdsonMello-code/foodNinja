@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodninja/app/core/theme/app_theme.dart';
 
 import '../../../core/widgets/button_widget.dart';
@@ -29,7 +28,7 @@ class OnboardingTileWidget extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SvgPicture.asset(
+        Image.asset(
           imageUrl,
           width: size.width,
           fit: BoxFit.fitWidth,
