@@ -85,11 +85,6 @@ class _HomeBottomNavigationBarWidgetState
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius: BorderRadius.circular(12),
-                      onTap: () {
-                        setState(() {
-                          currentTitle = item;
-                        });
-                      },
                       child: Container(
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(

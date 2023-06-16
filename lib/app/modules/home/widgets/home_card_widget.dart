@@ -19,7 +19,7 @@ class HomeCardWidget extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(22),
       onTap: () {},
-      child: Ink(
+      child: Container(
         height: 184,
         width: 147,
         padding: const EdgeInsets.only(
@@ -43,16 +43,18 @@ class HomeCardWidget extends StatelessWidget {
           ],
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(
               url,
             ),
-            TextWidget.inter(
-              title,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: TextWidget.inter(
+                title,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             TextWidget.inter(
