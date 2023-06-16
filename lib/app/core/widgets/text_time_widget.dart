@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:foodninja/app/core/mixin/format_in_two_digit_mixin.dart';
 import 'package:foodninja/app/core/utils/unit.dart';
 import 'package:foodninja/app/core/widgets/text_widget.dart';
 
@@ -18,7 +19,8 @@ class TextTimeWidget extends StatefulWidget {
   State<TextTimeWidget> createState() => _TextTimeWidgetState();
 }
 
-class _TextTimeWidgetState extends State<TextTimeWidget> {
+class _TextTimeWidgetState extends State<TextTimeWidget>
+    with FormatInTwoDigitMixin {
   @override
   void initState() {
     super.initState();
@@ -33,17 +35,9 @@ class _TextTimeWidgetState extends State<TextTimeWidget> {
 
   String _formatTime(DateTime dateTime) {
     final dateTimeFormated =
-        "${formatIntTwoDigiteString(dateTime.minute.remainder(60))}:${formatIntTwoDigiteString(dateTime.second.remainder(60))}";
+        "${formatIntTwoDigitString(dateTime.minute.remainder(60))}:${formatIntTwoDigitString(dateTime.second.remainder(60))}";
 
     return dateTimeFormated;
-  }
-
-  String formatIntTwoDigiteString(int value) {
-    if (value >= 10) {
-      return value.toString();
-    }
-
-    return '0$value';
   }
 
   Unit setCurrentDuration() {
