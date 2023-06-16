@@ -50,33 +50,33 @@ class HomePageState extends State<HomePage> {
 
     return Scaffold(
       backgroundColor: const Color(0xFFFEFEFF),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(
-          top: padding.top,
+      body: Container(
+        constraints: BoxConstraints(
+          minHeight: size.height - padding.top,
+          maxWidth: size.width,
         ),
-        child: Container(
-          constraints: BoxConstraints(
-            maxHeight: size.height - padding.top,
-            maxWidth: size.width,
-          ),
-          padding: const EdgeInsets.only(
-            top: 60,
-            right: 31,
-            left: 31,
-          ),
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              alignment: Alignment.topRight,
-              image: AssetImage(
-                'assets/images/backgrund_sliced.png',
-              ),
-              fit: BoxFit.fitWidth,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            alignment: Alignment.topRight,
+            image: AssetImage(
+              'assets/images/background_sliced.png',
             ),
+            fit: BoxFit.fitWidth,
           ),
-          child: CustomScrollView(
-            clipBehavior: Clip.antiAlias,
-            slivers: [
-              SliverToBoxAdapter(
+        ),
+        child: CustomScrollView(
+          slivers: [
+            SliverPadding(
+              padding: EdgeInsets.only(
+                top: padding.top + 60,
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.only(
+                right: 31,
+                left: 31,
+              ),
+              sliver: SliverToBoxAdapter(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -94,7 +94,13 @@ class HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              SliverToBoxAdapter(
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.only(
+                right: 31,
+                left: 31,
+              ),
+              sliver: SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.only(
                     top: 18,
@@ -133,7 +139,13 @@ class HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SliverToBoxAdapter(
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.only(
+                right: 31,
+                left: 31,
+              ),
+              sliver: SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20.0),
                   child: HomeSpecialDealCardWidget(
@@ -181,7 +193,13 @@ class HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SliverToBoxAdapter(
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.only(
+                right: 31,
+                left: 31,
+              ),
+              sliver: SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 25.0),
                   child: Row(
@@ -206,37 +224,43 @@ class HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
-                  child: SizedBox(
-                    height: 190,
-                    width: size.width,
-                    child: ListView.builder(
-                      itemCount: restaurants.length,
-                      padding: const EdgeInsets.all(8),
-                      scrollDirection: Axis.horizontal,
-                      controller: pageController,
-                      clipBehavior: Clip.none,
-                      itemBuilder: (context, index) {
-                        final restaurant = restaurants[index];
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: SizedBox(
+                  height: 190,
+                  width: size.width,
+                  child: ListView.builder(
+                    itemCount: restaurants.length,
+                    padding: const EdgeInsets.all(8),
+                    scrollDirection: Axis.horizontal,
+                    controller: pageController,
+                    clipBehavior: Clip.none,
+                    itemBuilder: (context, index) {
+                      final restaurant = restaurants[index];
 
-                        return Padding(
-                          padding: const EdgeInsets.only(
-                            right: 20.0,
-                          ),
-                          child: HomeCardWidget(
-                            url: restaurant.url,
-                            time: restaurant.time,
-                            title: restaurant.title,
-                          ),
-                        );
-                      },
-                    ),
+                      return Padding(
+                        padding: const EdgeInsets.only(
+                          right: 20.0,
+                        ),
+                        child: HomeCardWidget(
+                          url: restaurant.url,
+                          time: restaurant.time,
+                          title: restaurant.title,
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),
-              SliverToBoxAdapter(
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.only(
+                right: 31,
+                left: 31,
+              ),
+              sliver: SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.only(
                     top: 25.0,
@@ -263,24 +287,26 @@ class HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SliverPadding(
-                padding: const EdgeInsets.only(
-                  top: 20,
-                ),
-                sliver: SliverList.builder(
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return const Padding(
-                      padding: EdgeInsets.only(
-                        bottom: 8.0,
-                      ),
-                      child: HomePopularWidget(),
-                    );
-                  },
-                ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.only(
+                top: 20,
+                right: 31,
+                left: 31,
               ),
-            ],
-          ),
+              sliver: SliverList.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return const Padding(
+                    padding: EdgeInsets.only(
+                      bottom: 8.0,
+                    ),
+                    child: HomePopularWidget(),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
