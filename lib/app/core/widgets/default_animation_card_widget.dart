@@ -1,19 +1,34 @@
 import 'package:flutter/material.dart';
 
-class DefaultAnimationCardWidget extends StatelessWidget {
+class DefaultAnimationCardWidget extends StatefulWidget {
   final Widget child;
 
-  const DefaultAnimationCardWidget({super.key, required this.child});
+  final Duration duration;
+
+  const DefaultAnimationCardWidget(
+      {super.key,
+      required this.child,
+      this.duration = const Duration(milliseconds: 1000)});
+
+  @override
+  State<DefaultAnimationCardWidget> createState() =>
+      _DefaultAnimationCardWidgetState();
+}
+
+class _DefaultAnimationCardWidgetState
+    extends State<DefaultAnimationCardWidget> {
+  final key = UniqueKey();
 
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder<double>(
-      duration: const Duration(milliseconds: 1000),
+      key: key,
+      duration: widget.duration,
       tween: Tween(
         begin: 0.0,
         end: 1,
       ),
-      child: child,
+      child: widget.child,
       builder: (context, value, child) {
         return Opacity(
           opacity: value,
