@@ -4,12 +4,12 @@ import 'package:foodninja/app/core/mixin/format_in_two_digit_mixin.dart';
 import 'package:foodninja/app/core/widgets/text_widget.dart';
 import 'package:foodninja/app/modules/chat/models/chat_message_model.dart';
 
-class ChatCardWidget extends StatelessWidget with FormatInTwoDigitMixin {
+class ChatCardMessageWidget extends StatelessWidget with FormatInTwoDigitMixin {
   final VoidCallback? onTap;
 
   final ChatMessageModel chatModel;
 
-  const ChatCardWidget({
+  const ChatCardMessageWidget({
     super.key,
     required this.chatModel,
     this.onTap,
@@ -50,7 +50,11 @@ class ChatCardWidget extends StatelessWidget with FormatInTwoDigitMixin {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(child: Image.asset(chatModel.imageUrl)),
+              Center(
+                child: Image.asset(
+                  chatModel.imageUrl,
+                ),
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -78,7 +82,9 @@ class ChatCardWidget extends StatelessWidget with FormatInTwoDigitMixin {
                 padding: const EdgeInsets.only(top: 10.0),
                 child: TextWidget.inter(
                   '${formatIntTwoDigitString(chatModel.updateAt.hour)}:${formatIntTwoDigitString(chatModel.updateAt.minute)}',
-                  style: const TextStyle(color: Color(0xFFD9D9D9)),
+                  style: const TextStyle(
+                    color: Color(0xFFD9D9D9),
+                  ),
                 ),
               ),
             ],

@@ -29,6 +29,7 @@ class _SplashPageState extends State<SplashPage>
     timer = Timer(const Duration(seconds: 5), () {
       Navigator.of(context).pushReplacementNamed('/first-step-onboarding');
     });
+    timer.cancel();
   }
 
   void statusAnimationListerner(AnimationStatus status) {

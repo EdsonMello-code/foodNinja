@@ -91,9 +91,14 @@ class _ChatMessagePageState extends State<ChatMessagePage> {
                   final chat = chats[index];
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
-                    child: ChatCardWidget(
+                    child: ChatCardMessageWidget(
                       chatModel: chat,
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushNamed(
+                          '/chat-details',
+                          arguments: chat,
+                        );
+                      },
                     ),
                   );
                 },
