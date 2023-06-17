@@ -51,31 +51,28 @@ class ChatCardWidget extends StatelessWidget with FormatInTwoDigitMixin {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(child: Image.asset(chatModel.imageUrl)),
-              Padding(
-                padding: const EdgeInsets.only(left: 14.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: TextWidget.inter(
-                        chatModel.name,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    TextWidget.inter(
-                      chatModel.description,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: TextWidget.inter(
+                      chatModel.name,
                       style: const TextStyle(
                         fontSize: 14,
-                        color: Color(0xFFD9D9D9),
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  TextWidget.inter(
+                    chatModel.description,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Color(0xFFD9D9D9),
+                    ),
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10.0),
