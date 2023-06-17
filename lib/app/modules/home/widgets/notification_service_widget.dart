@@ -3,7 +3,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:foodninja/app/core/extensions/theme_extensions.dart';
 
 class NotificationServiceWidget extends StatelessWidget {
-  const NotificationServiceWidget({super.key});
+  final VoidCallback? onPressed;
+
+  const NotificationServiceWidget({
+    super.key,
+    this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +17,7 @@ class NotificationServiceWidget extends StatelessWidget {
       type: MaterialType.button,
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
-        onTap: () {},
+        onTap: onPressed,
         child: Ink(
           width: 45,
           height: 45,

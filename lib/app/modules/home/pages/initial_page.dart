@@ -90,7 +90,11 @@ class InitialPageState extends State<InitialPage> {
                         ),
                       ),
                     ),
-                    const NotificationServiceWidget()
+                    NotificationServiceWidget(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/notifications');
+                      },
+                    )
                   ],
                 ),
               ),

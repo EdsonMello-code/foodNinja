@@ -18,6 +18,7 @@ import 'package:foodninja/app/modules/chat/models/chat_message_model.dart';
 import 'package:foodninja/app/modules/chat/pages/call_page.dart';
 import 'package:foodninja/app/modules/chat/pages/chat_details_page.dart';
 import 'package:foodninja/app/modules/home/pages/home_page.dart';
+import 'package:foodninja/app/modules/notifications/pages/notifications_page.dart';
 import 'package:foodninja/app/modules/onboarding/onboarding_page.dart';
 import 'package:foodninja/app/modules/onboarding/splash_page.dart';
 import 'package:foodninja/main.dart';
@@ -99,6 +100,9 @@ class AppWidget extends StatelessWidget with ThemeMixin {
           },
           '/reset-password-success': (context) {
             return const ResetPasswordSuccessPage();
+          },
+          '/notifications': (context) {
+            return const NotificationsPage();
           },
           '/call': (context) {
             final chat =

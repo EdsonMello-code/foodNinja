@@ -28,9 +28,6 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final padding = MediaQuery.paddingOf(context);
-    final size = MediaQuery.sizeOf(context);
-
     return Scaffold(
       backgroundColor: const Color(0xFFFEFEFF),
       bottomNavigationBar: HomeBottomNavigationBarWidget(
