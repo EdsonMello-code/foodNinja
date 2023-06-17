@@ -64,7 +64,7 @@ class _HomeBottomNavigationBarWidgetState
                 (index, item) => Visibility(
                   visible: item.title == currentTitle.title,
                   replacement: Tooltip(
-                    message: currentTitle.title,
+                    message: item.title,
                     child: Padding(
                       padding: const EdgeInsets.only(right: 12.0),
                       child: GestureDetector(

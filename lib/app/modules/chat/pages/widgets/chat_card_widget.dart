@@ -17,7 +17,6 @@ class ChatCardWidget extends StatelessWidget with FormatInTwoDigitMixin {
 
   @override
   Widget build(BuildContext context) {
-    final padding = MediaQuery.paddingOf(context);
     final size = MediaQuery.sizeOf(context);
 
     return InkWell(
