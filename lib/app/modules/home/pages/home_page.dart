@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodninja/app/modules/chat/pages/chat_page.dart';
+import 'package:foodninja/app/modules/chat/pages/chat_message_page.dart';
 import 'package:foodninja/app/modules/home/pages/initial_page.dart';
 import 'package:foodninja/app/modules/home/pages/widgets/home_bottom_navigation_bar_widget.dart';
 
@@ -17,7 +17,7 @@ class HomePageState extends State<HomePage> {
     const InitialPage(),
     const InitialPage(),
     const InitialPage(),
-    const ChatPage(),
+    const ChatMessagePage(),
   ];
 
   @override

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:foodninja/app/core/extensions/theme_extensions.dart';
 import 'package:foodninja/app/core/mixin/format_in_two_digit_mixin.dart';
 import 'package:foodninja/app/core/widgets/text_widget.dart';
-import 'package:foodninja/app/modules/chat/models/chat_model.dart';
+import 'package:foodninja/app/modules/chat/models/chat_message_model.dart';
 
 class ChatCardWidget extends StatelessWidget with FormatInTwoDigitMixin {
   final VoidCallback? onTap;
 
-  final ChatModel chatModel;
+  final ChatMessageModel chatModel;
 
   const ChatCardWidget({
     super.key,

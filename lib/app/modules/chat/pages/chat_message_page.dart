@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:foodninja/app/core/widgets/back_button_widget.dart';
 import 'package:foodninja/app/core/widgets/text_widget.dart';
-import 'package:foodninja/app/modules/chat/models/chat_model.dart';
-import 'package:foodninja/app/modules/chat/pages/widgets/chat_card_widget.dart';
+import 'package:foodninja/app/modules/chat/models/chat_message_model.dart';
+import 'package:foodninja/app/modules/chat/pages/widgets/chat_message_card_widget.dart';
 
-class ChatPage extends StatefulWidget {
-  const ChatPage({super.key});
+class ChatMessagePage extends StatefulWidget {
+  const ChatMessagePage({super.key});
 
   @override
-  State<ChatPage> createState() => _ChatPageState();
+  State<ChatMessagePage> createState() => _ChatMessagePageState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _ChatMessagePageState extends State<ChatMessagePage> {
   final chats = [
-    ChatModel(
+    ChatMessageModel(
       imageUrl: 'assets/images/avatar1.png',
       name: 'Anamwp',
       updateAt: DateTime.now(),
       description: 'Your Order Just Arrived!',
     ),
-    ChatModel(
+    ChatMessageModel(
       imageUrl: 'assets/images/avatar2.png',
       name: 'Guy Hawkins',
       updateAt: DateTime.now(),
       description: 'Your Order Just Arrived!',
     ),
-    ChatModel(
+    ChatMessageModel(
       imageUrl: 'assets/images/avatar3.png',
       name: 'Leslie Alexander',
       updateAt: DateTime.now(),
