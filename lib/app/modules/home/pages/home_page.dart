@@ -13,8 +13,6 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   late final PageController pageController;
 
-  int currentIndexPage = 0;
-
   final pages = [
     const InitialPage(),
     const InitialPage(),
@@ -26,6 +24,9 @@ class HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     pageController = PageController();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      pageController.jumpToPage(4);
+    });
   }
 
   @override
@@ -36,10 +37,14 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: const Color(0xFFFEFEFF),
       bottomNavigationBar: HomeBottomNavigationBarWidget(
-        onChanged: (value) {
-          setState(() {
-            currentIndexPage = value;
-          });
+        onChanged: (currentPageIndex) {
+          pageController.animateToPage(
+            currentPageIndex,
+            duration: const Duration(
+              milliseconds: 600,
+            ),
+            curve: Curves.fastLinearToSlowEaseIn,
+          );
         },
         items: const [
           CustomBottomNavigationBarItem(
@@ -67,8 +72,9 @@ class HomePageState extends State<HomePage> {
       body: PageView.builder(
         physics: const NeverScrollableScrollPhysics(),
         itemCount: pages.length,
+        controller: pageController,
         itemBuilder: (context, index) {
-          return pages[currentIndexPage];
+          return pages[index];
         },
       ),
     );
