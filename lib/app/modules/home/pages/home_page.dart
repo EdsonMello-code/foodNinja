@@ -24,9 +24,6 @@ class HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     pageController = PageController();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      pageController.jumpToPage(4);
-    });
   }
 
   @override

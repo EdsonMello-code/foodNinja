@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:foodninja/app/core/extensions/theme_extensions.dart';
 import 'package:foodninja/app/core/widgets/text_field_widget.dart';
 
@@ -19,9 +20,7 @@ class TextChatTextFieldWidget extends StatelessWidget {
           child: GestureDetector(
             child: Ink(
               color: context.appTheme.green,
-              child: const Icon(
-                Icons.send,
-              ),
+              child: SvgPicture.asset('assets/images/send.svg'),
             ),
           ),
         ),

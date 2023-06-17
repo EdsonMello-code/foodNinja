@@ -126,7 +126,7 @@ class ChatCardDetailsWidget extends StatelessWidget {
               color: Colors.transparent,
               child: InkWell(
                 borderRadius: BorderRadius.circular(100),
-                onTap: () {},
+                onTap: onCallTap,
                 child: Ink(
                   width: 40,
                   height: 40,

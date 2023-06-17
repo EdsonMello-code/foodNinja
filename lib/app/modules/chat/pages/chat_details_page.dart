@@ -74,7 +74,12 @@ class ChatDetailsPage extends StatelessWidget {
                 imageUrl: chatMessageModel.imageUrl,
                 isOnline: false,
                 name: chatMessageModel.name,
-                onCallTap: () {},
+                onCallTap: () {
+                  Navigator.of(context).pushNamed(
+                    '/call',
+                    arguments: chatMessageModel,
+                  );
+                },
               ),
             ),
             const SliverPadding(
