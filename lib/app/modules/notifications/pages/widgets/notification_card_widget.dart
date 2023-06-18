@@ -100,7 +100,9 @@ class NotificationCardWidget extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
-                      color: const Color(0xFF3B3B3B).withOpacity(.3),
+                      color: themeData.brightness == Brightness.dark
+                          ? Colors.white.withOpacity(.3)
+                          : const Color(0xFF3B3B3B).withOpacity(.3),
                     ),
                   ),
                 ),

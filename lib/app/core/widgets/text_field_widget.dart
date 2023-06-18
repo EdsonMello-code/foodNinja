@@ -83,7 +83,9 @@ class TextFieldWidget extends StatelessWidget {
             autocorrect: true,
             textCapitalization: TextCapitalization.sentences,
             style: GoogleFonts.inter(
-              color: const Color(0xFF3B3B3B),
+              color: themeData.brightness == Brightness.light
+                  ? const Color(0xFF3B3B3B)
+                  : Colors.white.withOpacity(0.8),
             ).merge(style),
             decoration: InputDecoration(
               fillColor: fillColor ?? theme.white,

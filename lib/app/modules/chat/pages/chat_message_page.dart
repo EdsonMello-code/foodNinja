@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodninja/app/core/widgets/back_button_widget.dart';
 import 'package:foodninja/app/core/widgets/text_widget.dart';
 import 'package:foodninja/app/modules/chat/models/chat_message_model.dart';
 import 'package:foodninja/app/modules/chat/pages/widgets/chat_message_card_widget.dart';
@@ -63,24 +62,17 @@ class _ChatMessagePageState extends State<ChatMessagePage> {
           ),
           child: CustomScrollView(
             slivers: [
-              const SliverPadding(
-                padding: EdgeInsetsDirectional.only(
-                  top: 38,
-                  bottom: 19,
+              SliverPadding(
+                padding: const EdgeInsets.only(
+                  top: 16,
                 ),
                 sliver: SliverToBoxAdapter(
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: BackButtonWidget(),
-                  ),
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: TextWidget.inter(
-                  'Chat',
-                  style: const TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
+                  child: TextWidget.inter(
+                    'Chat',
+                    style: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

@@ -16,6 +16,8 @@ class CallPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final padding = MediaQuery.paddingOf(context);
     final size = MediaQuery.sizeOf(context);
+    final themeData = Theme.of(context);
+
     return Scaffold(
       body: Container(
         constraints: BoxConstraints(
@@ -23,12 +25,16 @@ class CallPage extends StatelessWidget {
           maxWidth: size.width,
         ),
         decoration: BoxDecoration(
-          color: context.appTheme.white,
-          image: const DecorationImage(
+          // color: context.appTheme.white,
+          image: DecorationImage(
             alignment: Alignment.topRight,
-            image: AssetImage(
-              'assets/images/splash_background.png',
-            ),
+            image: themeData.brightness == Brightness.light
+                ? const AssetImage(
+                    'assets/images/splash_background.png',
+                  )
+                : const AssetImage(
+                    'assets/images/background_splash_dark.png',
+                  ),
             fit: BoxFit.fitWidth,
           ),
         ),
@@ -83,7 +89,9 @@ class CallPage extends StatelessWidget {
                       'Ringing . . .',
                       style: TextStyle(
                         fontSize: 19,
-                        color: const Color(0xFF3B3B3B).withOpacity(.3),
+                        color: themeData.brightness == Brightness.light
+                            ? const Color(0xFF3B3B3B).withOpacity(.3)
+                            : Colors.white,
                       ),
                     ),
                   ],
@@ -102,23 +110,32 @@ class CallPage extends StatelessWidget {
                       width: 78,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        gradient: LinearGradient(
-                          colors: [
-                            context.appTheme.darkGreen.withOpacity(.3),
-                            context.appTheme.green.withOpacity(.3),
-                          ],
-                        ),
+                        gradient: themeData.brightness == Brightness.light
+                            ? LinearGradient(
+                                colors: [
+                                  context.appTheme.darkGreen.withOpacity(.3),
+                                  context.appTheme.green.withOpacity(.3),
+                                ],
+                              )
+                            : LinearGradient(
+                                colors: [
+                                  context.appTheme.darkGreen.withOpacity(.1),
+                                  context.appTheme.green.withOpacity(.1),
+                                ],
+                              ),
                       ),
                       child: Center(
                         child: SvgPicture.asset('assets/images/volume.svg'),
                       ),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Material(
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      borderRadius: BorderRadius.circular(100),
                       child: Ink(
                         height: 78,
                         width: 78,

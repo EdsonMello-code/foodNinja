@@ -133,13 +133,18 @@ class ChatCardDetailsWidget extends StatelessWidget {
                 child: Ink(
                   width: 40,
                   height: 40,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color(0xFFEDFCF3),
+                    color: themeData.brightness == Brightness.light
+                        ? const Color(0xFFEDFCF3)
+                        : const Color(0xFFF6F6F6).withOpacity(.1),
                   ),
                   child: Center(
                     child: SvgPicture.asset(
                       'assets/images/call.svg',
+                      color: themeData.brightness == Brightness.dark
+                          ? const Color(0xFFF6F6F6)
+                          : context.appTheme.darkGreen,
                     ),
                   ),
                 ),

@@ -15,6 +15,8 @@ class ChatMessageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
+    final themeData = Theme.of(context);
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 20.0),
       child: Align(
@@ -28,7 +30,11 @@ class ChatMessageWidget extends StatelessWidget {
                   )
                 : null,
             decoration: BoxDecoration(
-              color: isMe ? null : const Color(0xFFF6F6F6),
+              color: isMe
+                  ? null
+                  : themeData.brightness == Brightness.light
+                      ? const Color(0xFFF6F6F6)
+                      : Colors.white.withOpacity(.1),
               gradient: isMe
                   ? LinearGradient(
                       colors: [
@@ -44,7 +50,13 @@ class ChatMessageWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w300,
-                color: isMe ? context.appTheme.white : null,
+                color: isMe
+                    ? themeData.brightness == Brightness.light
+                        ? context.appTheme.white
+                        : Colors.white
+                    : themeData.brightness == Brightness.light
+                        ? null
+                        : Colors.white,
               ),
             ),
           );

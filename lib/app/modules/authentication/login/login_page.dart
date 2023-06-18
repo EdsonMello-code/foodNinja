@@ -147,7 +147,9 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.only(bottom: 0.0),
                 child: ButtonWidget(
                   text: 'Login',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed('/home');
+                  },
                 ),
               )
             ],
