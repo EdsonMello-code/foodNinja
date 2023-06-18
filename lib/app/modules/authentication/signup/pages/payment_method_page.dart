@@ -13,7 +13,6 @@ class PaymentMethodPage extends StatelessWidget {
     final padding = MediaQuery.paddingOf(context);
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
-      backgroundColor: const Color(0xFFFEFEFF),
       body: Container(
         width: size.width,
         padding: padding.copyWith(

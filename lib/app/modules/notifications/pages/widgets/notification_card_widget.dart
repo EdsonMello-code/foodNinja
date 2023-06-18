@@ -40,6 +40,7 @@ class NotificationCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
+    final themeData = Theme.of(context);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 20.0),
@@ -48,18 +49,20 @@ class NotificationCardWidget extends StatelessWidget {
         decoration: BoxDecoration(
           color: context.appTheme.white,
           borderRadius: BorderRadius.circular(22),
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromARGB(
-                20,
-                90,
-                108,
-                234,
-              ),
-              blurRadius: 50,
-              offset: Offset(12.0, 26.0),
-            ),
-          ],
+          boxShadow: themeData.brightness == Brightness.light
+              ? [
+                  const BoxShadow(
+                    color: Color.fromARGB(
+                      20,
+                      90,
+                      108,
+                      234,
+                    ),
+                    blurRadius: 50,
+                    offset: Offset(12.0, 26.0),
+                  ),
+                ]
+              : [],
         ),
         width: size.width,
         child: Row(

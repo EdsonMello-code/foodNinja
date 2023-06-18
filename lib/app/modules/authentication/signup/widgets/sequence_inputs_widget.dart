@@ -18,21 +18,24 @@ class _SequenceInputsWidgetState extends State<SequenceInputsWidget> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
+    final themeData = Theme.of(context);
 
     return Container(
       width: size.width,
       decoration: BoxDecoration(
-        boxShadow: const [
-          BoxShadow(
-            color: Color.fromARGB(
-              20,
-              90,
-              108,
-              234,
-            ),
-            blurRadius: 50,
-          ),
-        ],
+        boxShadow: themeData.brightness == Brightness.light
+            ? const [
+                BoxShadow(
+                  color: Color.fromARGB(
+                    20,
+                    90,
+                    108,
+                    234,
+                  ),
+                  blurRadius: 50,
+                ),
+              ]
+            : [],
         borderRadius: BorderRadius.circular(100),
       ),
       child: Row(

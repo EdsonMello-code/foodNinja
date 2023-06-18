@@ -31,7 +31,6 @@ class _UploadImagePageState extends State<UploadImagePage> {
     final padding = MediaQuery.paddingOf(context);
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
-      backgroundColor: const Color(0xFFFEFEFF),
       body: ValueListenableBuilder(
           valueListenable: widget.uploadImageController,
           builder: (context, value, child) {
@@ -190,7 +189,6 @@ class _UploadImagePageState extends State<UploadImagePage> {
                                                   style: const TextStyle(
                                                     fontSize: 14,
                                                     fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
                                                   ),
                                                 ),
                                               ],
@@ -235,7 +233,6 @@ class _UploadImagePageState extends State<UploadImagePage> {
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold,
-                                                      color: Colors.black,
                                                     ),
                                                   ),
                                                 ],

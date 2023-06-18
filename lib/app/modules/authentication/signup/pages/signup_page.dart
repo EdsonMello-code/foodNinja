@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:foodninja/app/core/extensions/theme_extensions.dart';
 import 'package:foodninja/app/core/widgets/checkbox_widget.dart';
 import 'package:foodninja/app/core/widgets/text_button_widget.dart';
 import 'package:foodninja/app/core/widgets/text_widget.dart';
@@ -26,21 +27,23 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     final padding = MediaQuery.paddingOf(context);
+    final themeData = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFEFEFF),
       body: SingleChildScrollView(
         child: Container(
           padding: padding.copyWith(
             right: padding.right + 25,
             left: padding.left + 25,
           ),
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
               alignment: Alignment.topCenter,
-              image: AssetImage(
-                'assets/images/splash_background.png',
-              ),
+              image: themeData.brightness == Brightness.light
+                  ? const AssetImage('assets/images/splash_background.png')
+                  : const AssetImage(
+                      'assets/images/background_splash_dark.png',
+                    ),
               fit: BoxFit.fitWidth,
             ),
           ),
@@ -114,6 +117,11 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                     TextWidget.inter(
                       'Keep Me Signed In',
+                      style: TextStyle(
+                        color: context.appTheme.white.withOpacity(
+                          0.5,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -129,6 +137,11 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   TextWidget.inter(
                     'Email Me About Special Pricing',
+                    style: TextStyle(
+                      color: context.appTheme.white.withOpacity(
+                        0.5,
+                      ),
+                    ),
                   ),
                 ],
               ),

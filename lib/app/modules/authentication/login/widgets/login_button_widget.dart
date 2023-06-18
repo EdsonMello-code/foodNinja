@@ -15,6 +15,7 @@ class LoginButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
+    final themeData = Theme.of(context);
 
     return Expanded(
       child: InkWell(
@@ -27,7 +28,9 @@ class LoginButtonWidget extends StatelessWidget {
           width: size.width,
           decoration: BoxDecoration(
             border: Border.all(
-              color: context.appTheme.grey,
+              color: themeData.brightness == Brightness.light
+                  ? context.appTheme.grey
+                  : Colors.white.withOpacity(0.1),
               width: 1,
             ),
             borderRadius: BorderRadius.circular(
@@ -44,6 +47,9 @@ class LoginButtonWidget extends StatelessWidget {
               ),
               TextWidget.inter(
                 'Facebook',
+                style: TextStyle(
+                  color: context.appTheme.black,
+                ),
               )
             ],
           ),

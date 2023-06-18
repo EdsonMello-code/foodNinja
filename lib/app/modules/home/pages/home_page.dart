@@ -29,8 +29,9 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFEFEFF),
-      bottomNavigationBar: HomeBottomNavigationBarWidget(
+      resizeToAvoidBottomInset: false,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: HomeBottomNavigationBarWidget(
         onChanged: (currentPageIndex) {
           pageController.animateToPage(
             currentPageIndex,

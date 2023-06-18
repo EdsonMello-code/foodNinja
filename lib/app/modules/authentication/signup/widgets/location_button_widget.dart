@@ -15,6 +15,7 @@ class LocationButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
+    final themeData = Theme.of(context);
 
     return DefaultAnimationCardWidget(
       child: Material(
@@ -29,7 +30,11 @@ class LocationButtonWidget extends StatelessWidget {
             height: 57,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: const Color(0XFFF6F6F6),
+              color: themeData.brightness == Brightness.light
+                  ? const Color(0XFFF6F6F6)
+                  : Colors.white.withOpacity(
+                      0.1,
+                    ),
             ),
             child: Center(
               child: TextWidget.rubik(

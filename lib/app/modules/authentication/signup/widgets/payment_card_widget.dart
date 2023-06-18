@@ -19,6 +19,7 @@ class PaymentCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
+    final themeData = Theme.of(context);
 
     return DefaultAnimationCardWidget(
       duration: const Duration(
@@ -37,17 +38,19 @@ class PaymentCardWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(
               22,
             ),
-            boxShadow: const [
-              BoxShadow(
-                color: Color.fromARGB(
-                  20,
-                  90,
-                  108,
-                  234,
-                ),
-                blurRadius: 50,
-              ),
-            ],
+            boxShadow: themeData.brightness == Brightness.light
+                ? const [
+                    BoxShadow(
+                      color: Color.fromARGB(
+                        20,
+                        90,
+                        108,
+                        234,
+                      ),
+                      blurRadius: 50,
+                    ),
+                  ]
+                : [],
           ),
           child: child,
         ),

@@ -25,7 +25,6 @@ class CloseButtonImageWidget extends StatelessWidget {
             child: const Icon(
               Icons.close,
               size: 12.0,
-              color: Color(0xFFFEFEFF),
             ),
           ),
         ),

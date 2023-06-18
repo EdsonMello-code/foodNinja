@@ -22,7 +22,6 @@ class ViaMethodPage extends StatelessWidget {
         ),
         padding: padding,
         decoration: const BoxDecoration(
-          color: Color(0xFFFEFEFF),
           image: DecorationImage(
             alignment: Alignment.topCenter,
             image: AssetImage(

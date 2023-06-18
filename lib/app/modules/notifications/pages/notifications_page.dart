@@ -16,7 +16,6 @@ class Notificationstate extends State<NotificationsPage> {
     final padding = MediaQuery.paddingOf(context);
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
-      backgroundColor: const Color(0xFFFEFEFF),
       body: Padding(
         padding: EdgeInsets.only(
           top: padding.top,

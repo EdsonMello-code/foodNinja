@@ -18,6 +18,7 @@ class ChatCardMessageWidget extends StatelessWidget with FormatInTwoDigitMixin {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
+    final themeData = Theme.of(context);
 
     return InkWell(
       borderRadius: BorderRadius.circular(22),
@@ -27,18 +28,20 @@ class ChatCardMessageWidget extends StatelessWidget with FormatInTwoDigitMixin {
         width: size.width,
         decoration: BoxDecoration(
           color: context.appTheme.white,
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromARGB(
-                20,
-                90,
-                108,
-                234,
-              ),
-              blurRadius: 50,
-              offset: Offset(12.0, 26.0),
-            ),
-          ],
+          boxShadow: themeData.brightness == Brightness.light
+              ? const [
+                  BoxShadow(
+                    color: Color.fromARGB(
+                      20,
+                      90,
+                      108,
+                      234,
+                    ),
+                    blurRadius: 50,
+                    offset: Offset(12.0, 26.0),
+                  ),
+                ]
+              : [],
           borderRadius: BorderRadius.circular(22),
         ),
         child: Padding(

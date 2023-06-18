@@ -29,7 +29,7 @@ class _SplashPageState extends State<SplashPage>
     timer = Timer(const Duration(seconds: 5), () {
       Navigator.of(context).pushReplacementNamed('/first-step-onboarding');
     });
-    timer.cancel();
+    // timer.cancel();
   }
 
   void statusAnimationListerner(AnimationStatus status) {
@@ -61,17 +61,19 @@ class _SplashPageState extends State<SplashPage>
 
     final interpolation = lerpDouble(0.5, 1, animationController.value);
 
+    final themeData = Theme.of(context);
+
     return Scaffold(
       extendBody: true,
       body: Container(
         width: size.width,
         height: size.height,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             alignment: Alignment.topCenter,
-            image: AssetImage(
-              'assets/images/splash_background.png',
-            ),
+            image: themeData.brightness == Brightness.light
+                ? const AssetImage('assets/images/splash_background.png')
+                : const AssetImage('assets/images/background_splash_dark.png'),
             fit: BoxFit.fitWidth,
           ),
         ),

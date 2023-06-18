@@ -61,7 +61,6 @@ class _SetLocationPageState extends State<SetLocationPage> {
     final size = MediaQuery.sizeOf(context);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFEFEFF),
       body: SingleChildScrollView(
         padding: EdgeInsets.zero,
         child: Container(

@@ -35,7 +35,7 @@ class AppWidget extends StatelessWidget with ThemeMixin {
         primaryFocus?.unfocus();
       },
       child: MaterialApp(
-        initialRoute: '/home',
+        initialRoute: '/',
         theme: ThemeData(
           primarySwatch: generateMaterialColor(
             const Color(0xFF15BE77),
@@ -43,8 +43,13 @@ class AppWidget extends StatelessWidget with ThemeMixin {
           materialTapTargetSize: MaterialTapTargetSize.padded,
           buttonTheme: const ButtonThemeData(minWidth: 0),
           primaryColor: const Color(0xFF15BE77),
+          brightness: Brightness.light,
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
         ).copyWith(
-          scaffoldBackgroundColor: Colors.white,
+          scaffoldBackgroundColor: const Color(0xFFFEFEFF),
           extensions: [
             const AppTheme(
               black: Color(0xFF09051C),
@@ -66,6 +71,39 @@ class AppWidget extends StatelessWidget with ThemeMixin {
             ),
           ],
         ),
+        darkTheme: ThemeData(
+          primarySwatch: generateMaterialColor(
+            const Color(0xFF15BE77),
+          ),
+          materialTapTargetSize: MaterialTapTargetSize.padded,
+          buttonTheme: const ButtonThemeData(minWidth: 0),
+          primaryColor: const Color(0xFF15BE77),
+          brightness: Brightness.dark,
+        ).copyWith(
+          scaffoldBackgroundColor: const Color(0xFF0D0D0D),
+          brightness: Brightness.dark,
+          extensions: [
+            AppTheme(
+              black: Colors.white,
+              deepBlack: const Color(0xFF444352),
+              middleBlack: const Color(0xFF86848F),
+              lightBlack: const Color(0xFFCECDD2),
+              deepYellow: const Color(0xFFFFC668),
+              middleYellow: const Color(0xFFFFDEA4),
+              lightYellow: const Color(0xFFFEF8E0),
+              yellow: const Color(0xFFFFAD1D),
+              orange: const Color(0xFFDA6317),
+              deepOrange: const Color(0xFFE38751),
+              lightOrange: const Color(0xFFE3CBBC),
+              middleOrange: const Color(0xFFE6A986),
+              green: const Color(0xFF15BE77),
+              darkGreen: const Color(0xFF53E88B),
+              white: Colors.white.withOpacity(0.10),
+              grey: const Color(0xFFF4F4F4),
+            ),
+          ],
+        ),
+        themeMode: ThemeMode.dark,
         routes: {
           '/': (context) => const SplashPage(),
           '/first-step-onboarding': (context) =>

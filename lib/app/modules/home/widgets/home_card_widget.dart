@@ -16,6 +16,8 @@ class HomeCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
+
     return InkWell(
       borderRadius: BorderRadius.circular(22),
       onTap: () {},
@@ -29,18 +31,20 @@ class HomeCardWidget extends StatelessWidget {
         decoration: BoxDecoration(
           color: context.appTheme.white,
           borderRadius: BorderRadius.circular(22),
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromARGB(
-                20,
-                90,
-                108,
-                234,
-              ),
-              blurRadius: 50,
-              offset: Offset(12.0, 26.0),
-            ),
-          ],
+          boxShadow: themeData.brightness == Brightness.light
+              ? const [
+                  BoxShadow(
+                    color: Color.fromARGB(
+                      20,
+                      90,
+                      108,
+                      234,
+                    ),
+                    blurRadius: 50,
+                    offset: Offset(12.0, 26.0),
+                  ),
+                ]
+              : [],
         ),
         child: Column(
           children: [

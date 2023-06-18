@@ -47,9 +47,9 @@ class InitialPageState extends State<InitialPage> {
   Widget build(BuildContext context) {
     final padding = MediaQuery.paddingOf(context);
     final size = MediaQuery.sizeOf(context);
+    final themeData = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFEFEFF),
       body: Container(
         constraints: BoxConstraints(
           minHeight: size.height - padding.top,
@@ -119,10 +119,19 @@ class InitialPageState extends State<InitialPage> {
                           contentPadding: const EdgeInsets.only(
                             left: 20,
                           ),
-                          fillColor: const Color(0xFFFEF6ED),
-                          prefix: SvgPicture.asset('assets/images/search.svg'),
+                          fillColor: themeData.brightness == Brightness.light
+                              ? const Color(0xFFFEF6ED)
+                              : context.appTheme.white,
+                          prefix: SvgPicture.asset(
+                            'assets/images/search.svg',
+                            color: themeData.brightness == Brightness.light
+                                ? context.appTheme.orange
+                                : Colors.white,
+                          ),
                           hint: 'What do you want to order?',
-                          hintColor: const Color(0xFFF2C2A2),
+                          hintColor: themeData.brightness == Brightness.light
+                              ? const Color(0xFFF2C2A2)
+                              : Colors.white.withOpacity(.4),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(
                               15,
@@ -173,13 +182,19 @@ class InitialPageState extends State<InitialPage> {
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: context.appTheme.white,
+                                    color:
+                                        themeData.brightness == Brightness.light
+                                            ? context.appTheme.white
+                                            : const Color(0xFF09051C),
                                   ),
                                 ),
                               ),
                               ButtonWidget(
                                 text: 'Buy Now',
-                                backgroundColor: context.appTheme.white,
+                                backgroundColor:
+                                    themeData.brightness == Brightness.light
+                                        ? context.appTheme.white
+                                        : Colors.white,
                                 textColor: context.appTheme.green,
                                 onPressed: () {},
                                 borderRadius: BorderRadius.circular(10),

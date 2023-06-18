@@ -27,9 +27,9 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final padding = MediaQuery.paddingOf(context);
     final size = MediaQuery.sizeOf(context);
+    final themeData = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFEFEFF),
       body: SingleChildScrollView(
         padding: EdgeInsets.zero,
         child: Container(
@@ -41,12 +41,16 @@ class _LoginPageState extends State<LoginPage> {
           constraints: BoxConstraints(
             minHeight: size.height - (padding.bottom + padding.top),
           ),
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
               alignment: Alignment.topCenter,
-              image: AssetImage(
-                'assets/images/splash_background.png',
-              ),
+              image: themeData.brightness == Brightness.light
+                  ? const AssetImage(
+                      'assets/images/splash_background.png',
+                    )
+                  : const AssetImage(
+                      'assets/images/background_splash_dark.png',
+                    ),
               fit: BoxFit.fitWidth,
             ),
           ),

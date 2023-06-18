@@ -34,6 +34,8 @@ class _HomeBottomNavigationBarWidgetState
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
+    final themeData = Theme.of(context);
+
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Container(
@@ -44,18 +46,22 @@ class _HomeBottomNavigationBarWidgetState
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(22),
-          color: context.appTheme.white,
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromARGB(
-                20,
-                90,
-                108,
-                234,
-              ),
-              blurRadius: 50,
-            ),
-          ],
+          color: themeData.brightness == Brightness.light
+              ? context.appTheme.white
+              : const Color(0xFF252525),
+          boxShadow: themeData.brightness == Brightness.light
+              ? const [
+                  BoxShadow(
+                    color: Color.fromARGB(
+                      20,
+                      90,
+                      108,
+                      234,
+                    ),
+                    blurRadius: 50,
+                  ),
+                ]
+              : [],
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

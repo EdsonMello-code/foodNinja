@@ -8,12 +8,18 @@ class SnackBarService {
     BuildContext context,
     String message,
   ) {
+    final themeData = Theme.of(context);
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         backgroundColor: context.appTheme.darkGreen,
         content: TextWidget.inter(
           message,
-          style: TextStyle(color: context.appTheme.white),
+          style: TextStyle(
+            color: themeData.brightness == Brightness.light
+                ? context.appTheme.white
+                : Colors.white,
+          ),
         ),
       ),
     );
@@ -24,11 +30,17 @@ class SnackBarService {
     BuildContext context,
     String message,
   ) {
+    final themeData = Theme.of(context);
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         backgroundColor: context.appTheme.orange,
         content: TextWidget.inter(
-          style: TextStyle(color: context.appTheme.white),
+          style: TextStyle(
+            color: themeData.brightness == Brightness.light
+                ? context.appTheme.white
+                : Colors.white,
+          ),
           message,
         ),
       ),

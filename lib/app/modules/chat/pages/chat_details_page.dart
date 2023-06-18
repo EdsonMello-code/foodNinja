@@ -20,8 +20,10 @@ class ChatDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final padding = MediaQuery.paddingOf(context);
     final size = MediaQuery.sizeOf(context);
+
+    final themeData = Theme.of(context);
+
     return Scaffold(
-      backgroundColor: context.appTheme.white,
       floatingActionButton: const TextChatTextFieldWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: Container(
@@ -31,11 +33,13 @@ class ChatDetailsPage extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: context.appTheme.white,
-          image: const DecorationImage(
+          image: DecorationImage(
             alignment: Alignment.topRight,
-            image: AssetImage(
-              'assets/images/splash_background.png',
-            ),
+            image: themeData.brightness == Brightness.light
+                ? const AssetImage('assets/images/splash_background.png')
+                : const AssetImage(
+                    'assets/images/background_splash_dark.png',
+                  ),
             fit: BoxFit.fitWidth,
           ),
         ),

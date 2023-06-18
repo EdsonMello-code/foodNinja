@@ -36,6 +36,8 @@ class _BackButtonWidgetState extends State<BackButtonWidget>
 
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
+
     return Transform.scale(
       scale: animationController.value,
       child: Material(
@@ -50,7 +52,9 @@ class _BackButtonWidgetState extends State<BackButtonWidget>
             width: 45,
             height: 45,
             decoration: BoxDecoration(
-              color: const Color(0xFFFDF5ED),
+              color: themeData.brightness == Brightness.dark
+                  ? const Color(0xFFF9A84D).withOpacity(0.1)
+                  : const Color(0xFFFDF5ED),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Center(

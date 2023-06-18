@@ -73,7 +73,7 @@ class ButtonWidget extends StatelessWidget {
                 child: TextWidget.inter(
                   text,
                   style: defaultFontStyle.copyWith(
-                    color: textColor,
+                    color: textColor ?? Colors.white,
                   ),
                   isTextAnimated: false,
                 ),

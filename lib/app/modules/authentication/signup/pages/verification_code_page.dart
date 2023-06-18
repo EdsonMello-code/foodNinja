@@ -12,6 +12,7 @@ class VerificationCodePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     final padding = MediaQuery.paddingOf(context);
+    final themeData = Theme.of(context);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -25,12 +26,16 @@ class VerificationCodePage extends StatelessWidget {
             top: 38,
             right: 25,
           ),
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
               alignment: Alignment.topCenter,
-              image: AssetImage(
-                'assets/images/splash_background.png',
-              ),
+              image: themeData.brightness == Brightness.light
+                  ? const AssetImage(
+                      'assets/images/splash_background.png',
+                    )
+                  : const AssetImage(
+                      'assets/images/background_splash_dark.png',
+                    ),
             ),
           ),
           child: Column(

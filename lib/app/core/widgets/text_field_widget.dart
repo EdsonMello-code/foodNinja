@@ -46,21 +46,24 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
+    final themeData = Theme.of(context);
 
     return Container(
       decoration: BoxDecoration(
-        boxShadow: boxShadow ??
-            [
-              const BoxShadow(
-                color: Color.fromARGB(
-                  20,
-                  90,
-                  108,
-                  234,
-                ),
-                blurRadius: 50,
-              ),
-            ],
+        boxShadow: themeData.brightness == Brightness.light
+            ? boxShadow ??
+                [
+                  const BoxShadow(
+                    color: Color.fromARGB(
+                      20,
+                      90,
+                      108,
+                      234,
+                    ),
+                    blurRadius: 50,
+                  ),
+                ]
+            : null,
       ),
       height: height,
       child: TweenAnimationBuilder<double>(
@@ -123,8 +126,10 @@ class TextFieldWidget extends StatelessWidget {
                   ),
               enabledBorder: border ??
                   OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color(0xFFF4F4F4),
+                    borderSide: BorderSide(
+                      color: themeData.brightness == Brightness.light
+                          ? const Color(0xFFF4F4F4)
+                          : context.appTheme.white,
                     ),
                     borderRadius: BorderRadius.circular(
                       15,
@@ -132,8 +137,10 @@ class TextFieldWidget extends StatelessWidget {
                   ),
               border: border ??
                   OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Color(0xFFF4F4F4),
+                    borderSide: BorderSide(
+                      color: themeData.brightness == Brightness.light
+                          ? const Color(0xFFF4F4F4)
+                          : context.appTheme.white,
                     ),
                     borderRadius: BorderRadius.circular(
                       15,

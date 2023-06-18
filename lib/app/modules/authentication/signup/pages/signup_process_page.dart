@@ -15,7 +15,6 @@ class SignupProcessPage extends StatelessWidget {
     final size = MediaQuery.sizeOf(context);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFEFEFF),
       body: SingleChildScrollView(
         child: Container(
           padding: padding.copyWith(

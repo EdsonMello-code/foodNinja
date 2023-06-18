@@ -8,6 +8,7 @@ class HomePopularWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
+    final themeData = Theme.of(context);
 
     return InkWell(
       onTap: () {},
@@ -17,18 +18,20 @@ class HomePopularWidget extends StatelessWidget {
         width: size.width,
         decoration: BoxDecoration(
           color: context.appTheme.white,
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromARGB(
-                20,
-                90,
-                108,
-                234,
-              ),
-              blurRadius: 50,
-              offset: Offset(12.0, 26.0),
-            ),
-          ],
+          boxShadow: themeData.brightness == Brightness.light
+              ? const [
+                  BoxShadow(
+                    color: Color.fromARGB(
+                      20,
+                      90,
+                      108,
+                      234,
+                    ),
+                    blurRadius: 50,
+                    offset: Offset(12.0, 26.0),
+                  ),
+                ]
+              : [],
           borderRadius: BorderRadius.circular(22),
         ),
         child: Padding(
@@ -54,11 +57,17 @@ class HomePopularWidget extends StatelessWidget {
                         child: TextWidget.inter(
                           'Green Noddle',
                           isTextAnimated: false,
+                          style: TextStyle(
+                            color: context.appTheme.black,
+                          ),
                         ),
                       ),
                       TextWidget.inter(
                         'Noodle Home',
                         isTextAnimated: false,
+                        style: TextStyle(
+                          color: context.appTheme.black,
+                        ),
                       ),
                     ],
                   ),
