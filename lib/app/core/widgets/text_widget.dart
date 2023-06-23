@@ -8,13 +8,11 @@ class TextWidget extends StatefulWidget {
   final String text;
   final TextAlign? textAlign;
   final TextDecoration decoration;
-  final bool isTextAnimated;
   const TextWidget._(
     this.text, {
     required this.style,
     this.textAlign = TextAlign.start,
     this.decoration = TextDecoration.none,
-    this.isTextAnimated = true,
   });
 
   factory TextWidget.inter(
@@ -24,7 +22,6 @@ class TextWidget extends StatefulWidget {
     ),
     TextAlign? textAlign,
     TextDecoration decoration = TextDecoration.none,
-    bool isTextAnimated = true,
   }) {
     return TextWidget._(
       text,
@@ -35,7 +32,6 @@ class TextWidget extends StatefulWidget {
       ),
       textAlign: textAlign,
       decoration: decoration,
-      isTextAnimated: isTextAnimated,
     );
   }
 
@@ -57,7 +53,6 @@ class TextWidget extends StatefulWidget {
       ),
       textAlign: textAlign,
       decoration: decoration,
-      isTextAnimated: isTextAnimated,
     );
   }
   @override
@@ -65,39 +60,54 @@ class TextWidget extends StatefulWidget {
 }
 
 class _TextWidgetState extends State<TextWidget> {
-  String _displayText = '';
   final key = UniqueKey();
+  late Stream<String> stream;
 
   @override
   void initState() {
     super.initState();
-    widget.isTextAnimated ? _startAnimation() : null;
+    // widget.isTextAnimated ? _startAnimation() : null;
+    stream = _startAnimation();
   }
 
-  Future<void> _startAnimation() async {
-    if (mounted) {
-      String text = widget.text;
-      for (int i = 0; i < text.length; i++) {
-        await Future.delayed(const Duration(milliseconds: 20));
-        if (mounted) {
-          setState(() {
-            _displayText = text.substring(0, i + 1);
-          });
-        }
-      }
+  Stream<String> _startAnimation() async* {
+    String text = widget.text;
+    String displayText = '';
+
+    for (int i = 0; i < text.length; i++) {
+      await Future.delayed(const Duration(milliseconds: 20));
+      displayText = text.substring(0, i + 1);
+      yield displayText;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      key: key,
-      widget.isTextAnimated ? _displayText : widget.text,
-      textAlign: widget.textAlign,
-      style: widget.style.copyWith(
-        decorationThickness: 1,
-        decoration: widget.decoration,
-      ),
-    );
+    return StreamBuilder(
+        stream: stream,
+        builder: (context, snapshot) {
+          final data = snapshot.data;
+          if (data == null) {
+            return Text(
+              key: key,
+              '',
+              textAlign: widget.textAlign,
+              style: widget.style.copyWith(
+                decorationThickness: 1,
+                decoration: widget.decoration,
+              ),
+            );
+          }
+
+          return Text(
+            key: key,
+            data,
+            textAlign: widget.textAlign,
+            style: widget.style.copyWith(
+              decorationThickness: 1,
+              decoration: widget.decoration,
+            ),
+          );
+        });
   }
 }

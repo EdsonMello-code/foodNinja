@@ -75,7 +75,6 @@ class ButtonWidget extends StatelessWidget {
                   style: defaultFontStyle.copyWith(
                     color: textColor ?? Colors.white,
                   ),
-                  isTextAnimated: false,
                 ),
               ),
             ),

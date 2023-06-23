@@ -68,7 +68,6 @@ class _TextTimeWidgetState extends State<TextTimeWidget>
   Widget build(BuildContext context) {
     return TextWidget.inter(
       '${widget.text}${_formatTime(currentDateTime)}',
-      isTextAnimated: false,
       style: const TextStyle(
         fontWeight: FontWeight.w300,
         color: Colors.black,

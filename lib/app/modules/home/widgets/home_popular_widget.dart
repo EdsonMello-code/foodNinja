@@ -56,7 +56,6 @@ class HomePopularWidget extends StatelessWidget {
                         padding: const EdgeInsets.only(bottom: 4.0),
                         child: TextWidget.inter(
                           'Green Noddle',
-                          isTextAnimated: false,
                           style: TextStyle(
                             color: context.appTheme.black,
                           ),
@@ -64,7 +63,6 @@ class HomePopularWidget extends StatelessWidget {
                       ),
                       TextWidget.inter(
                         'Noodle Home',
-                        isTextAnimated: false,
                         style: TextStyle(
                           color: context.appTheme.black,
                         ),
