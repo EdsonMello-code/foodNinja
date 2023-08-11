@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodninja/app/core/mixin/theme_mixin.dart';
 import 'package:foodninja/app/core/services/image/image_service.dart';
-import 'package:foodninja/app/modules/authentication/login/login_page.dart';
+import 'package:foodninja/app/modules/authentication/login/presentation/pages/login_page.dart';
 import 'package:foodninja/app/modules/authentication/reset_password/reset_password_page.dart';
 import 'package:foodninja/app/modules/authentication/signup/controllers/set_location_controller.dart';
 import 'package:foodninja/app/modules/authentication/signup/controllers/upload_image_controller.dart';
@@ -103,7 +103,7 @@ class AppWidget extends StatelessWidget with ThemeMixin {
             ),
           ],
         ),
-        themeMode: ThemeMode.dark,
+        themeMode: ThemeMode.system,
         routes: {
           '/': (context) => const SplashPage(),
           '/first-step-onboarding': (context) =>

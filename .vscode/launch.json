@@ -8,9 +8,8 @@
             "name": "foodninja",
             "request": "launch",
             "type": "dart",
-            // "args": [
-            //     "--cache-sksl"
-            // ]
+            "args": [
+            ]
         },
         {
             "name": "foodninja (profile mode)",

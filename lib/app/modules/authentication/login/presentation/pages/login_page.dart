@@ -5,7 +5,7 @@ import 'package:foodninja/app/core/widgets/button_widget.dart';
 import 'package:foodninja/app/core/widgets/text_button_widget.dart';
 import 'package:foodninja/app/core/widgets/text_field_widget.dart';
 import 'package:foodninja/app/core/widgets/text_widget.dart';
-import 'package:foodninja/app/modules/authentication/login/widgets/login_button_widget.dart';
+import 'package:foodninja/app/modules/authentication/login/presentation/pages/widgets/login_button_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
