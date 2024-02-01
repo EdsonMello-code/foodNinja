@@ -16,25 +16,20 @@ class NotificationCardWidget extends StatelessWidget {
     required this.time,
   });
   Widget switchWidgetByStatus(NoticationEnum status) {
-    switch (status) {
-      case NoticationEnum.payment:
-        return SvgPicture.asset(
+    return switch (status) {
+      NoticationEnum.payment => SvgPicture.asset(
           'assets/images/in_payment.svg',
-        );
-      case NoticationEnum.success:
-        return SvgPicture.asset(
+        ),
+      NoticationEnum.success => SvgPicture.asset(
           'assets/images/notification_succes.svg',
-        );
-
-      case NoticationEnum.failure:
-        return SvgPicture.asset(
+        ),
+      NoticationEnum.failure => SvgPicture.asset(
           'assets/images/canceled.svg',
-        );
-      default:
-        return SvgPicture.asset(
+        ),
+      _ => SvgPicture.asset(
           'assets/images/canceled.svg',
-        );
-    }
+        )
+    };
   }
 
   @override
